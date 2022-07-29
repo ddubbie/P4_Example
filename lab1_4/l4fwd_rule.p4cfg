@@ -1,0 +1,47 @@
+{
+	"tables": {
+		"in_tbl": {
+			"rules": [
+            {
+                "action": {
+                    "data": {
+                        "prt": {
+                            "value": "p0"
+                        }
+                    },
+                    "type": "fwd_act"
+                },
+                "name": "fwd_act",
+                "match": {
+                     "standard_metadata.ingress_port": { 
+                         "value": "v0.0"
+                     }
+                }
+
+            },
+            {
+                "action": {
+                    "data": {
+                        "prt": {
+                            "value": "v0.0"
+                        }
+                    },
+                    "type": "fwd_act"
+                },
+                "name": "fwd_act",
+                "match": {
+                    "standard_metadata.ingress_port": {
+                        "value": "p0"
+                    }
+                }
+            }
+            ],
+			"default_rule": {
+				"action": {
+					"type": "drop_act"
+				},
+				"name": "drop_act"
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+{
+    "tables": {
+        "encap_tbl": {
+            "rules": [
+            {
+                "name": "rule1",
+                "match": {
+                    "standard_metadata.ingress_port": {"value": "p0"}
+                },
+                "action": {
+                    "data": {
+                        "prt": {"value": "v0.0"},
+                        "tag": {"value": "42"}
+                    },
+                    "type": "encap_act"
+                }
+            },
+
+            {
+                "name": "rule2",
+                "match": {
+                    "standard_metadata.ingress_port": {"value": "p4"}
+                },
+                "action": {
+                    "data": {
+                        "prt": {"value": "v0.1"},
+                        "tag": {"value": "42"}
+                    },
+                    "type": "encap_act"
+                }
+            }
+            ],
+            "default_rule": {
+                "action": {
+                    "type": "drop_act"
+                },
+                "name": "drop_act"
+            }
+        }
+    }
+}

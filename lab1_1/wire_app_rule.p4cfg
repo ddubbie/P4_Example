@@ -1,0 +1,12 @@
+{
+	"tables": {
+		"in_tbl": {
+			"default_rule": {
+				"action": {
+					"type": "drop_act"
+				},
+				"name": "drop_act"
+			}
+		}
+	}
+}

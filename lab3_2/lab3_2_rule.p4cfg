@@ -1,0 +1,27 @@
+{
+    "tables": {
+        "encap_tbl": {
+            "rules": [
+            {
+                "name": "encap_act",
+                "match": {
+                    "standard_metadata.ingress_port":{"value": "p0"}
+                },
+                "action": {
+                    "data": {
+                        "prt": {"value": "v0.0"},
+                        "tag": {"value": "42"}
+                    },
+                    "type": "encap_act"
+                }
+            }
+            ],
+            "default_rule": {
+                "action": {
+                    "type": "drop_act"
+                },
+                "name": "drop_act"
+            }
+        }
+    }
+}

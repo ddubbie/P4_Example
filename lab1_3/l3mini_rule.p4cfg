@@ -1,0 +1,34 @@
+{
+    "tables": {
+        "fwd_tbl": {
+            "rules": [
+            {
+                "name": "rule_0",
+                "match": {
+                    "ipv4.dst": {"value": "10.1.100.10/24"}
+                },
+                "action": {
+                    "type": "fwd_act",
+                    "data": {
+                        "port" : {"value": "p0"}
+                    }
+                }
+
+            },
+            {
+                "name": "rule_1",
+                "match": {
+                    "ipv4.dst": {"value": "10.1.100.30/24"}
+
+                },
+                "action": {
+                    "type": "fwd_act",
+                    "data": {
+                        "port" : {"value": "v0.0"}
+                    }
+                }
+            }
+            ]
+        }
+    }
+}
