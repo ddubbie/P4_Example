@@ -5,7 +5,7 @@
             {
                 "name": "rule_0",
                 "match": {
-                    "ipv4.dst": {"value": "10.1.100.10/24"}
+                    "ipv4.dst": {"value": "10.1.100.10"}
                 },
                 "action": {
                     "type": "fwd_act",
@@ -18,7 +18,7 @@
             {
                 "name": "rule_1",
                 "match": {
-                    "ipv4.dst": {"value": "10.1.100.30/24"}
+                    "ipv4.dst": {"value": "10.1.100.30"}
 
                 },
                 "action": {
@@ -28,7 +28,13 @@
                     }
                 }
             }
-            ]
+            ],
+            "default_rule": {
+                "action" :{
+                    "type": "drop_act"
+                },
+                "name": "drop_act"
+            }
         }
     }
 }

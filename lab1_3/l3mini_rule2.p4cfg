@@ -1,0 +1,70 @@
+{
+    "tables": {
+        "fwd_tbl": {
+            "rules": [
+            {
+                "name": "rule_0",
+                "match": {
+                    "ipv4.dst": {"value": "10.1.100.10"}
+                },
+                "action": {
+                    "type": "fwd_act",
+                    "data": {
+                        "port" : {"value": "p0"}
+                    }
+                }
+
+            },
+            {
+                "name": "rule_1",
+                "match": {
+                    "ipv4.dst": {"value": "10.1.100.30"}
+
+                },
+                "action": {
+                    "type": "fwd_act",
+                    "data": {
+                        "port" : {"value": "v0.0"}
+                    }
+                }
+            },
+
+            {
+                "name": "rule_2",
+                "match": {
+                    "ipv4.dst": {"value": "10.2.100.30"}
+
+                },
+                "action": {
+                    "type": "fwd_act",
+                    "data": {
+                        "port" : {"value": "v0.1"}
+                    }
+                }
+            },
+                
+            {
+                "name": "rule_3",
+                "match": {
+                    "ipv4.dst": {"value": "10.2.100.10"}
+
+                },
+                "action": {
+                    "type": "fwd_act",
+                    "data": {
+                        "port" : {"value": "p4"}
+                    }
+                }
+            }
+
+            ],
+            "default_rule": {
+                "action": {
+                    "type": "drop_act"
+                },
+                "name": "drop_act"
+            }
+
+        }
+    }
+}

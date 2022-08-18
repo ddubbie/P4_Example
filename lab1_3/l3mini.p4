@@ -25,24 +25,10 @@ header_type ipv4_hdr {
 	}
 }
 
-header_type tcp_hdr {
-    fields {
-        sdPorts : 32;
-        seqNo : 32;
-        ackNo : 32;
-        dataOffset : 4;
-        res : 4;
-        flags : 8;
-        window : 16;
-        checksum : 16;
-        urgentPtr : 16;
-    }
-}
 
 /* Header instances */
 header eth_hdr eth;
 header ipv4_hdr ipv4;
-header tcp_hdr tcp
 
 /* Parser */
 parser start {
@@ -56,15 +42,11 @@ parser eth_parse {
 		/* NOTE: no default case so non-ipv4 will be dropped in parser */
 	}
 }
+
 parser ipv4_parse {
 	extract(ipv4);
-    return 
 	return ingress;
 }
-
-parser 
-
-
 
 /* Ingress */
 action fwd_act(port) {
@@ -77,7 +59,7 @@ action drop_act() {
 
 table fwd_tbl {
 	reads {
-		ipv4.dst : lpm;
+		ipv4.dst : exact;
 	}
 	actions {
 		fwd_act;
